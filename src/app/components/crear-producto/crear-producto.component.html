@@ -1,1 +1,58 @@
-<p>crear-producto works!</p>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card">
+                <div class="card-body text-center">
+                    <span class="titulo">CREAR PRODUCTOS</span>
+                    <form
+                        class="mt-3"
+                        [formGroup]="productoForm"
+                        (ngSubmit)="agregarProducto()"
+                    >
+                        <div class="mb-3">
+                            <input
+                                type="text"
+                                class="form-control form-control-lg" placeholder="Producto"
+                                formControlName="producto"
+                            >
+                        </div>
+                        <div class="mb-3">
+                            <input
+                                type="text"
+                                class="form-control form-control-lg" placeholder="Categoría"
+                                formControlName="categoria"
+                            >
+                        </div>
+                        <div class="mb-3">
+                            <input
+                                type="text"
+                                class="form-control form-control-lg" placeholder="Ubicación"
+                                formControlName="ubicacion"
+                            >
+                        </div>
+                        <div class="mb-3">
+                            <input
+                                type="number"
+                                class="form-control form-control-lg" placeholder="Precio"
+                                formControlName="precio"
+                            >
+                        </div>
+                        <div class="mb-3">
+                            <button
+                                class="btn btn-secondary btn-lg float-start"
+                                routerLink="/"
+                            >VOLVER</button>
+                        </div>
+                        <div class="mb-3">
+                            <button
+                            type="submit"
+                                class="btn btn-success btn-lg float-end"
+                                routerLink="/crear-producto"
+                            >ACEPTAR</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
