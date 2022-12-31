@@ -2,3 +2,8 @@
     cursor: pointer;
     margin-left: 7px;
 }
+
+.mostrar {
+    text-align: start;
+    margin-top: 10px;
+}

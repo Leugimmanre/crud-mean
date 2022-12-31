@@ -8,7 +8,10 @@
                         class="btn btn-success float-end"
                         routerLink="/crear-producto"
                         >NUEVO</button>
-                    <table class="table table-striped mt-4">
+                    <table
+                      class="table table-striped mt-4"
+                      *ngIf="listProductos.length > 0"
+                    >
                         <thead>
                           <tr>
                             <th scope="col">Producto</th>
@@ -19,28 +22,28 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <td scope="row">Coca-cola</td>
-                            <td>Bebida</td>
-                            <td>León</td>
-                            <td>2.5</td>
+                          <tr *ngFor="let producto of listProductos">
+                            <td>{{producto.nombre}}</td>
+                            <td>{{producto.categoria}}</td>
+                            <td>{{producto.ubicacion}}</td>
+                            <td>{{producto.precio | currency: 'EUR'}}</td>
                             <td>
-                              <i class="fa-solid fa-pen-to-square text-primary"></i>
-                              <i class="fa-solid fa-trash text-danger"></i>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td scope="row">Jamón</td>
-                            <td>Embutido</td>
-                            <td>Ponferrada</td>
-                            <td>8</td>
-                            <td>
-                              <i class="fa-solid fa-pen-to-square text-primary"></i>
-                              <i class="fa-solid fa-trash text-danger"></i>
+                              <i
+                                class="fa-solid fa-pen-to-square text-primary"
+                                [routerLink]="['/editar-producto', producto._id]"
+                              ></i>
+                              <i
+                                class="fa-solid fa-trash text-danger"
+                                (click)="eliminarProducto(producto._id)"
+                              ></i>
                             </td>
                           </tr>
                         </tbody>
                       </table>
+                      <h5
+                        class="mostrar"
+                        *ngIf="listProductos.length == 0"
+                      >No hay productos para mostrar</h5>
                 </div>
             </div>
         </div>
